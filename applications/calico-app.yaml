@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: calico
+  namespace: argocd
+spec:
+  destination:
+    namespace: kube-system
+    server: https://kubernetes.default.svc
+  project: addons
+  source:
+    chart: aws-calico
+    helm:
+      values: |
+        calico:
+          tag: "v3.17.4"
+        autoscaler:
+          tag: "1.8.1"
+    repoURL: https://aws.github.io/eks-charts
+    targetRevision: 0.3.4
+
