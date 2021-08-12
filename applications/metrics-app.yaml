@@ -12,7 +12,7 @@ spec:
     chart: metrics-server
     helm:
       valueFiles:
-      - values.yaml
+      - metric-server-values.yaml
     repoURL: https://charts.bitnami.com/bitnami
     targetRevision: 5.8.5
 
